@@ -1,0 +1,17 @@
+[Unit]
+Description=App Service
+After=network.target
+
+[Service]
+User=appuser
+ExecStart=/usr/bin/python3 /opt/app/server.py
+Restart=on-failure
+RestartSec=5
+EnvironmentFile=/opt/app/.env
+StandardOutput=append:/var/log/app.log
+StandardError=append:/var/log/app.log
+WorkingDirectory=/opt/app/
+Type=simple
+
+[Install]
+WantedBy=multi-user.target

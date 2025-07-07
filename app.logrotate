@@ -1,0 +1,10 @@
+/var/log/app.log {
+    daily
+    rotate 7
+    compress
+    missingok
+    notifempty
+    create 664 appuser
+    postrotate
+    endscript
+}
